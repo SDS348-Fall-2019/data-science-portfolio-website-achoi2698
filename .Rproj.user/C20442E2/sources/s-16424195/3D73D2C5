@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576452342261.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3D73D2C5",
+    "lastKnownWriteTime" : 1576443933,
+    "last_content_update" : 1576443933,
+    "path" : "~/compbiowebsite/config.toml",
+    "project_path" : "config.toml",
+    "properties" : {
+        "cursorPosition" : "25,28",
+        "scrollLine" : "16"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "toml"
+}

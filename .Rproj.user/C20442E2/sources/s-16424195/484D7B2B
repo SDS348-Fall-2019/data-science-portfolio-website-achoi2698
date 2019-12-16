@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576453280648.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "484D7B2B",
+    "lastKnownWriteTime" : 1576454082,
+    "last_content_update" : 1576454082,
+    "path" : "~/compbiowebsite/content/blog/2019-12-15-camp-kesem.Rmd",
+    "project_path" : "content/blog/2019-12-15-camp-kesem.Rmd",
+    "properties" : {
+        "cursorPosition" : "7,15",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

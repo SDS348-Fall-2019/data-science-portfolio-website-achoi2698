@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Chris Turner</title>
+    <link>/blog/</link>
+    <description>Recent content in Blogs on Chris Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Camp Kesem</title>
+      <link>/blog/camp-kesem/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/camp-kesem/</guid>
+      <description>I am part of an organization called Camp Kesem. It is the largest national nonprofit organization dedicated to the often-overlooked population of children impacted by a parents cancer, and I am honored to volunteer my time for this amazing cause.I hope you will consider helping our mission for this upcoming summer. Every single donation helps us support more children who are facing some pretty grown-up issues. These children have to grow up much faster than their peers.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chris Turner</title>
+    <link>/</link>
+    <description>Recent content on Chris Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Camp Kesem</title>
+      <link>/blog/camp-kesem/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/camp-kesem/</guid>
+      <description>I am part of an organization called Camp Kesem. It is the largest national nonprofit organization dedicated to the often-overlooked population of children impacted by a parents cancer, and I am honored to volunteer my time for this amazing cause.I hope you will consider helping our mission for this upcoming summer. Every single donation helps us support more children who are facing some pretty grown-up issues. These children have to grow up much faster than their peers.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>Projects Here are some projects I have been working on:
+  Project 1
+  Project 2
+  </description>
+    </item>
+    
+    <item>
+      <title>Project 1: Exploratory Data Analysis</title>
+      <link>/project1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project1/</guid>
+      <description>Data Wrangling and Data Exploration Instructions A knitted R Markdown document (as a PDF) and the raw R Markdown file (as .Rmd) should both be submitted to Canvas by 11:59pm on 10/20/2019. These two documents will be graded jointly, so they must be consistent (i.e., don’t change the R Markdown file without also updating the knitted document). Knit an html copy too, for later!
+I envision your written text forming something of a narrative structure around your code/output.</description>
+    </item>
+    
+    <item>
+      <title>Project 2: Modeling, Testing, and Predicting</title>
+      <link>/compbioproject2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/compbioproject2/</guid>
+      <description>library(knitr) opts_chunk$set(fig.align=&amp;quot;center&amp;quot;, fig.height=5, message=FALSE, warning=FALSE, fig.width=8, tidy.opts=list(width.cutoff=60),tidy=TRUE) class_diag&amp;lt;-function(probs,truth){ tab&amp;lt;-table(factor(probs&amp;gt;.5,levels=c(&amp;quot;FALSE&amp;quot;,&amp;quot;TRUE&amp;quot;)),truth) acc=sum(diag(tab))/sum(tab) sens=tab[2,2]/colSums(tab)[2] spec=tab[1,1]/colSums(tab)[1] ppv=tab[2,2]/rowSums(tab)[2] if(is.numeric(truth)==FALSE &amp;amp; is.logical(truth)==FALSE) truth&amp;lt;-as.numeric(truth)-1 #CALCULATE EXACT AUC ord&amp;lt;-order(probs, decreasing=TRUE) probs &amp;lt;- probs[ord]; truth &amp;lt;- truth[ord] TPR=cumsum(truth)/max(1,sum(truth)) FPR=cumsum(!truth)/max(1,sum(!truth)) dup&amp;lt;-c(probs[-1]&amp;gt;=probs[-length(probs)], FALSE) TPR&amp;lt;-c(0,TPR[!dup],1); FPR&amp;lt;-c(0,FPR[!dup],1) n &amp;lt;- length(TPR) auc&amp;lt;- sum( ((TPR[-1]+TPR[-n])/2) * (FPR[-1]-FPR[-n]) ) data.frame(acc,sens,spec,ppv,auc) } Modeling Instructions A knitted R Markdown document (as a PDF) and the raw R Markdown file (as .Rmd) should both be submitted to Canvas by 11:59pm on 11/24/2019.</description>
+    </item>
+    
+    <item>
+      <title>Project 2: Modeling, Testing, and Predicting</title>
+      <link>/project2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project2/</guid>
+      <description>library(knitr) opts_chunk$set(fig.align=&amp;quot;center&amp;quot;, fig.height=5, message=FALSE, warning=FALSE, fig.width=8, tidy.opts=list(width.cutoff=60),tidy=TRUE) class_diag&amp;lt;-function(probs,truth){ tab&amp;lt;-table(factor(probs&amp;gt;.5,levels=c(&amp;quot;FALSE&amp;quot;,&amp;quot;TRUE&amp;quot;)),truth) acc=sum(diag(tab))/sum(tab) sens=tab[2,2]/colSums(tab)[2] spec=tab[1,1]/colSums(tab)[1] ppv=tab[2,2]/rowSums(tab)[2] if(is.numeric(truth)==FALSE &amp;amp; is.logical(truth)==FALSE) truth&amp;lt;-as.numeric(truth)-1 #CALCULATE EXACT AUC ord&amp;lt;-order(probs, decreasing=TRUE) probs &amp;lt;- probs[ord]; truth &amp;lt;- truth[ord] TPR=cumsum(truth)/max(1,sum(truth)) FPR=cumsum(!truth)/max(1,sum(!truth)) dup&amp;lt;-c(probs[-1]&amp;gt;=probs[-length(probs)], FALSE) TPR&amp;lt;-c(0,TPR[!dup],1); FPR&amp;lt;-c(0,FPR[!dup],1) n &amp;lt;- length(TPR) auc&amp;lt;- sum( ((TPR[-1]+TPR[-n])/2) * (FPR[-1]-FPR[-n]) ) data.frame(acc,sens,spec,ppv,auc) } Modeling Instructions A knitted R Markdown document (as a PDF) and the raw R Markdown file (as .Rmd) should both be submitted to Canvas by 11:59pm on 11/24/2019.</description>
+    </item>
+    
+  </channel>
+</rss>

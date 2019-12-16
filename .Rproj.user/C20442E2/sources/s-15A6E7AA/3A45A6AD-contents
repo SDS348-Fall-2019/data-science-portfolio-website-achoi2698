@@ -1,0 +1,302 @@
+---
+title: 'Project 1: Exploratory Data Analysis'
+author: "SDS348 Fall 2019"
+date: "9/16/2019"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Wrangling and Data Exploration
+
+### Instructions
+A knitted R Markdown document (as a PDF) and the raw R Markdown file (as .Rmd) should both be submitted to Canvas by 11:59pm on 10/20/2019. These two documents will be graded jointly, so they must be consistent (i.e., don’t change the R Markdown file without also updating the knitted document). Knit an html copy too, for later!
+
+I envision your written text forming something of a narrative structure around your code/output. All results presented must have corresponding code. Any answers/results/plots etc. given without the corresponding R code that generated the result will not be graded. Furthermore, all code contained in your final project document should work properly. Please do not include any extraneous code or code which produces error messages. (Code which produces warnings is acceptable, as long as you understand what the warnings mean).
+
+### Find data:
+
+Find two (!) datasets with one variable in common (e.g., dates, years, states, counties, countries), both with at least 50 observations (i.e., rows) in each. When combined, the resulting/final dataset must have **at least 4 different variables (at least 2 numeric) in addition to the common variable**.
+
+Choose as many as you would like! If you found two datasets that you like but they don't have enough variables,  find a third dataset with the same common variable and join all three.
+```{R}
+
+```
+
+### Guidelines
+
+1. If the datasets are not tidy, you will need to reshape them so that every observation has its own row and every variable its own column. If the datasets are both already tidy, you will make them untidy with pivot_wider()/spread() and then tidy them again with pivot_longer/gather() to demonstrate your use of the functions. It's fine to wait until you have your descriptives to use these functions (e.g., you might want to pivot_wider() to rearrange the data to make your descriptive statistics easier to look at); it's fine long as you use them at least once!
+
+    - Depending on your datasets, it might be a good idea to do this before joining. For example, if you have a dataset you like with multiple measurements per year, but you want to join by year, you could average over your numeric variables to get means/year, do counts for your categoricals to get a counts/year, etc.
+```{R}
+
+```
+    
+
+2. Join your 2+ separate data sources into a single dataset
+
+    - You will document the type of join that you do (left/right/inner/full), including how many cases in each dataset were dropped and why you chose this particular join
+    ```{R}
+
+```
+
+
+3. Create summary statistics
+
+    - Use *all six* core `dplyr` functions (filter, select, arrange, group_by, mutate, summarize) to manipulate and explore your dataset. For mutate, create a  new variable that is a function of at least one other variable, preferably using a dplyr vector function (see dplyr cheatsheet). It's fine to use the `_if`, `_at`, `_all` versions of mutate/summarize instead (indeed, it is encouraged if you have lots of variables)
+    
+    - Create summary statistics (mean, sd, var, n, quantile, min, max, n_distinct, cor, etc) for each of your numeric variables overall and after grouping by one of your categorical variables (either together or one-at-a-time; if you have two categorical variables, try to include at least one statistic based on a grouping of two categorical variables simultaneously). If you do not have any categorical variables, create one using mutate to satisfy the requirements above. Ideally, you will find a way to show these summary statistics in an easy-to-read table (e.g., by reshaping). If you have lots of numeric variables, or your categorical variables have too many categories, just pick a few (either numeric variables or categories of a categorical variable) and summarize based on those. It would be a good idea to show a correlation matrix for your numeric variables!
+    ```{R}
+
+```
+ 
+4. Make visualizations
+
+    - If you have 5 variables (the minimum), with 2 numeric variables (the minimum), create at least two effective plots with ggplot that illustrate some of the more interesting findings that your descriptive statistics have turned up.
+    - Each plot should have at least three variables mapped to separate aesthetics (if correlation heatmap, etc, fine to do the same "variable" on both axes)
+    - At least one plot should include `stat="summary"`
+    - Each plot should include a supporting paragraph describing the relationships that are being visualized and any notable trends that are apparent
+        - It is fine to include more, but limit yourself to 4. Plots should avoid being redundant! Four bad plots will get a lower grade than two good plots, all else being equal.
+    - If doing a 3D plot (not encouraged, but sometimes useful), it's fine to use plotly for one plot (make the other(s) in ggplot).
+    ```{R}
+
+```
+    
+5. Perform k-means/PAM clustering or PCA on (at least) your numeric variables.
+
+    - Include all steps as we discuss in class, including a visualization.
+
+    - If you don't have at least 3 numeric variables, or you want to cluster based on categorical variables too, convert them to factors in R, generate Gower's dissimilarity matrix on the data, and do PAM clustering on the dissimilarities.
+    
+    - Show how you chose the final number of clusters/principal components 
+    
+    - Interpret the final clusters/principal components 
+
+    
+- For every step, you should document what your code does (in words) and what you see in the data.     
+```{R}
+
+```
+    
+    
+### Rubric
+
+Prerequisite: Finding appropriate data from at least two sources per the instructions above: Failure to do this will result in a 0! You will submit a .Rmd file and a knitted document (pdf).
+
+#### 0. Introduction (4  pts)
+
+- Write a narrative introductory paragraph (or two) describing the datasets you have chosen, the variables they contain, how they were acquired, and why they are interesting to you. Expand on potential associations you may expect, if any.
+
+
+
+```{R}
+
+```
+The "VA"" data set is called the Veteran's Administration Lung Cancer Trial. This data set has descriptive statistics on a patient's performance of daily activities and performance, along with age and type of treatment received. The variables contained in this data set includes survival/follow up time in days, status of patient, treatment type, patient age, karnofsky's score of patient performance, time since diagnosis, cell type and the existence of prior therapy. This data set was acquired from running library(MASS) from all of the packages available in the R server. 
+
+The "cancer" data set is called NCCTG Lung Cancer Data. This dataset looks into the performance scores of advanced lung cancer patients who received treatment from the North Central Cancer treatment facility. The variables included in this data set include institution code, survival time, status, age, sex, ECOG performance score, karnofsky's score rated by the physician, Karnofsky's score rated by the patient, calorie consumed at meals and weightloss in the last six months. This data set was acquired from running library(survival) from all of the available packages in R. I chose these two data sets because. I wanted to observe how a certain treatment or age can affect multiple characteristics of a patient. 
+
+#### 1. Tidying: Rearranging Wide/Long (8 pts)
+
+- Tidy the datasets (using the `tidyr` functions `pivot_longer`/`gather` and/or `pivot_wider`/`spread`) 
+- If you data sets are already tidy, untidy them, retidy them.
+- Document the process (describe in words what was done)
+```{R}
+
+library(dplyr)
+data(package = .packages(all.available = TRUE))
+library(survival)
+library(MASS)
+library(tidyverse)
+VA1 <- VA%>%rename(time = stime)
+fulljoindata <- full_join(cancer, VA, by = "age")
+
+fulljoin3 <- fulljoindata %>% mutate(Karn_cat = case_when(ph.karno>=80 ~ "Independent", ph.karno<=70 ~ "assistance"))
+
+fulljoin4 <-fulljoin3 %>% mutate(time_weeks= time/7)
+#fulljoin4 %>% dplyr::select(-sex)
+
+fulljoin5 <- fulljoin4 %>% na.omit()
+widedat<- fulljoin4%>% pivot_wider(names_from="Karn_cat", values_from="time_weeks")
+widedat <- widedat%>%dplyr::select(-"NA")
+
+longdat<- widedat%>%pivot_longer(c("Independent", "assistance"), names_to="Karn_cat", values_to="time_weeks")
+
+longdat <- longdat %>% na.omit
+
+#Using the pivot_wider function, the two types of categorical data from the variable Karn_cat were turned into their own variables. One variable under "Independent" contains the time in weeks under that name only while the same was true of the new column/variable "assistance". using the pivot_longer function, the two variables of "independent" and "assistance" were combined into one variable, with another column called "time_weeks" which displayed the survival time in weeks corresponding to either patients who were categorized under "Independent" or "assistance".
+
+```
+    
+#### 2. Joining/Merging (8 pts)
+
+- Join your datasets into one using a `dplyr` join function
+- If you have multiple observations on the joining variable in either dataset, fix this by collapsing via summarize
+- Discuss the process in words, including why you chose the join you did
+- Discuss which cases were dropped, if any, and potential problems with this
+```{R}
+data(package = .packages(all.available = TRUE))
+library(survival)
+library(MASS)
+library(tidyverse)
+help(VA)
+help(cancer)
+VA1 <- VA%>%rename(time = stime)
+fulljoindata <- full_join(cancer, VA, by = "age")
+#I chose to use the full_join function because both data sets contained the "age" variable, something that can be used to assess if age plays a role in how well they perform in the performance tests or other performance characteristics such as survival time. 
+#None of the cases were dropped, except for maybe 
+```
+
+#### 3. Wrangling (40 pts)
+
+- Use all six core `dplyr` functions in the service of generating summary statistics (18 pts)
+    - Use mutate to generate a variable that is a function of at least one other variable
+
+- Compute at least 10 different summary statistics using summarize and summarize with group_by (18 pts)
+    - At least 2 of these should group by a categorical variable. Create one by dichotomizing a numeric if necessary
+    - If applicable, at least 1 of these 5 should group by two categorical variables
+    - Strongly encouraged to create a correlation matrix with `cor()` on your numeric variables
+
+- Summarize/discuss all results in no more than two paragraphs (4 pts)
+```{R}
+library(dplyr)
+library(tidyr)
+library(tidyselect)
+library(tidyverse)
+
+fulljoin3%>%filter(duplicated(fulljoin3))
+fulljoin3 <- fulljoin3 %>% mutate(sex_cat = case_when(sex==1 ~ "male", sex==2 ~ "female"))
+
+mean_time <- fulljoin3 %>% group_by(sex_cat) %>% summarize(mean_time=mean(time,na.rm=T))
+#It appears that between male and female patients, the average survival time of females after receiving treatment was approximately 338 days while that of males was 291 days. Females seems to have an average survival time higher than that of males.
+
+sd_time <- fulljoin3 %>% group_by(sex_cat) %>%summarize(sd_time=sd(time,na.rm=T))
+
+fulljoin3 <- fulljoin3 %>% mutate(Karn_cat = case_when(ph.karno>=80 ~ "Independent", ph.karno<=70 ~ "assistance"))
+
+fulljoin4 <-fulljoin3 %>% mutate(time_weeks= time/7)
+
+mean_time2 <- fulljoin4 %>% group_by(status.x) %>% summarize(mean_time=mean(wt.loss,na.rm=T))
+#It also appears that the patients who have passed away(aka status of "2") lost an average of 9.34 pounds in the last 6 months while those who have been censored lost only 7.59 pounds. It shows that those who have passed away have lost more average weight than those who have been censored.
+
+sd_time2 <- fulljoin4%>% group_by(status.x) %>% summarize(sd_status=sd(status.x, na.rm=T))
+#fulljoin4 %>% dplyr::select(-sex)
+
+IQR_wtloss <- fulljoin4 %>% group_by(sex_cat) %>% summarize(weight.loss=IQR(time,na.rm=T))
+
+fulljoin4 %>% bind_rows(fulljoin4) %>% arrange(desc(time)) %>% glimpse()
+```
+
+
+#### 4. Visualizing (30 pts)
+
+
+- Create two effective, polished plots with ggplot
+
+    - Each plot should map 3+ variables to aesthetics 
+    - Each plot should have a title and clean labeling for all mappings
+    - Change at least one default theme element and color for at least one mapping per plot
+    - For at least one plot, add more tick marks (x, y, or both) than are given by default
+    - For at least one plot, use the stat="summary" function
+    - Supporting paragraph or two (for each plot) describing the relationships/trends that are apparent
+    ```{R}
+library(ggplot2)
+    
+ggplot(data=fulljoin4, aes(x = ph.karno, y = time_weeks, color=age)) + geom_point(size=1.5, alpha=.5) + ggtitle("Karnofsky score vs survival time vs age") + xlab("Karnofsky score by Physician") + ylab("surival time(weeks)")
+
+#It appears that the higher the patient's Karnofsky performance score, the greater the average survival time in weeks. It also appears that there was a much higher prevalence of patients who recieved a Karnofsky score close to the range in the 80's or 90's. 
+
+ggplot(fulljoin4, aes(x = diag.time, y = wt.loss, fill = Karn_cat))+ geom_bar(stat="summary", fun.y="mean", position="dodge") + ggtitle("Diagnosis time vs weightloss vs Karnofsky Condition") + xlab("Diagnosis time") + ylab("weight loss") + geom_errorbar(stat="summary", position="dodge")
+
+#According to the graph, there appears to be a larger overall weight loss when patients recieved a Karnofsky score in the "assistance" compared to that on the "independent" range. 
+
+help(VA)
+```
+    
+#### 5. Dimensionality Reduction (20 pts) 
+
+- Either k-means/PAM clustering or PCA (inclusive "or") should be performed on at least three numeric variables in your dataset
+
+    - All relevant steps discussed in class should be included/reported
+    - A visualization of the clusters or the first few principal components (using ggplot2)
+    - Supporting paragraph or two describing results found 
+    ```{R}
+  
+fulljoin_pca <- fulljoin5%>%na.omit %>% select_if(is.numeric)%>% scale
+fulljoin2_pca<-prcomp(fulljoin_pca)
+summary(fulljoin2_pca)
+
+fulljoin2_pca$x%>%as.data.frame%>%mutate(Karn_cat=fulljoin5$Karn_cat)%>% ggplot(aes(PC1,PC2,col=Karn_cat))+geom_point()
+
+#According to the visualization, the 18 numeric variables were grouped into PC1 and PC2 and showed that there exists some sort of differentiation between all of the numeric variables present, based on the "assistance" and "independent" under the categorical variable Karn_cat. The "assistance" indication is given for any patients who scored 70 or less on the Karnofsky performance score while the "independent" indication is given for any patients who scored 80 or above on the Karnofsky performance score. It appears that there is some sort of significant difference on the other variables that can be explained by how high or low the patients scored on the test. 
+
+```
+    
+
+### Where do I find data?
+
+OK, brace yourself!
+
+You can choose ANY datasets you want that meet the above criteria for variables and observations. I'm just sitting here but off the top of my head, if you are into amusement parks, you could look at amusement-park variables, including visits, and how they are impacted by weather. If you are interested in Game of Thrones, you could look at how the frequency of mentions of character names (plus other character variables) and the frequency of baby names in the US...You could even take your old Biostats data and merge in new data (e.g., based on a Google forms timestamp).
+
+You can make it as serious as you want, or not, but keep in mind that you will be incorporating this project into a portfolio webpage for your final in this course, so choose something that really reflects who you are, or something that you feel will advance you in the direction you hope to move career-wise, or something that you think is really neat. On the flip side, regardless of what you pick, you will be performing all the same tasks, so it doesn't end up being that big of a deal.
+
+If you are totally clueless and have no direction at all, log into the server and type 
+
+```{R eval=F}
+
+```
+
+This will print out a list of **ALL datasets in ALL packages** installed on the server (a ton)! Scroll until your eyes bleed! Actually, do not scroll that much... To start with something more manageable, just run the command on your own computer, or just run `data()` to bring up the datasets in your current environment. To read more about a dataset, do `?packagename::datasetname`. 
+
+If it is easier for you, and in case you don't have many packages installed, a list of R datasets from a few common packages (also downloadable in CSV format) is given at the following website: https://vincentarelbundock.github.io/Rdatasets/datasets.html
+
+- A good package to download for fun/relevant data is `fivethiryeight`. Just run `install.packages("fivethirtyeight"), load the packages with `library(fivethirtyeight)`, run `data()`, and then scroll down to view the datasets. Here is an online list of all 127 datasets (with links to the 538 articles). Lots of sports, politics, current events, etc.
+
+- If you have already started to specialize (e.g., ecology, epidemiology) you might look at discipline-specific R packages (vegan, epi, respectively). We will be using some tools from these packages later in the course, but they come with lots of data too, which you can explore according to the directions above
+
+- However, you *emphatically DO NOT* have to use datasets available via R packages! In fact, I would much prefer it if you found the data from completely separate sources and brought them together (a much more realistic experience in the real world)! You can even reuse data from your SDS328M project, provided it shares a variable in common with other data which allows you to  merge the two together (e.g., if you still had the timestamp, you could look up the weather that day: https://www.wunderground.com/history/). If you work in a research lab or have access to old data, you could potentially merge it with new data from your lab!
+
+- Here is a curated list of interesting datasets (read-only spreadsheet format): https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit
+
+- Here is another great compilation of datasets: https://github.com/rfordatascience/tidytuesday
+
+- Here is the UCI Machine Learning Repository: https://archive.ics.uci.edu/ml/index.php
+
+    - See also https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research#Biological_data
+
+- Here is another good general place to look: https://www.kaggle.com/datasets
+
+- To help narrow your search down or to see interesting variable ideas, check out https://www.tylervigen.com/spurious-correlations. This is the spurious correlations website, and it is fun, but if you look at the bottom of each plot you will see sources for the data. This is a good place to find very general data (or at least get a sense of where you can scrape data together from)!
+
+- If you are interested in medical data, check out www.countyhealthrankings.org
+
+- If you are interested in scraping UT data, they make *loads* of data public (e.g., beyond just professor CVs and syllabi). Check out all the data that is available in the statistical handbooks: https://reports.utexas.edu/statistical-handbook
+
+##### Broader data sources:
+
+[Data.gov](www.data.gov) 186,000+ datasets!
+
+[Social Explorer](Social Explorer) is a nice interface to Census and American Community Survey data (more user-friendly than the government sites). May need to sign up for a free trial.
+
+[U.S. Bureau of Labor Statistics](www.bls.gov)
+
+[U.S. Census Bureau](www.census.gov)
+
+[Gapminder](www.gapminder.org/data), data about the world.
+
+...
+
+
+
+
+
